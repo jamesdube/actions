@@ -1,4 +1,8 @@
 name: mvn test
+inputs:
+  args:
+    description: "arguments to run for mvn"
+    required: true
 runs:
   using: "composite"
   steps:
@@ -6,4 +10,4 @@ runs:
       uses: docker://maven:3.8.5-amazoncorretto-11
       with:
         entrypoint:  mvn
-        args: clean install
+        args: ${{ inputs.args }}
