@@ -1,0 +1,16 @@
+name: test container
+
+on:
+  push:
+
+jobs:
+  container-job:
+    runs-on: ubuntu-latest
+    container: maven:3.8.5-amazoncorretto-11
+    
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Test
+        run: |
+          mvn clean install
