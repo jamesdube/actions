@@ -1,0 +1,8 @@
+name: mvn test
+runs:
+  using: "composite"
+  steps:
+    - name: mvn test
+        uses: docker://maven:3.8.5-amazoncorretto-11
+        run: |
+          mvn clean install
